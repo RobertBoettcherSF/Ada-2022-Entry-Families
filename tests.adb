@@ -18,7 +18,7 @@ procedure Tests is
       accept Start (Id : Spots.Slot_Id) do
          Slot := Id;
       end Start;
-      if Slot not in Spots.Slot_Id then
+      if not Slot'Valid then
          raise Program_Error;
       end if;
       B.Claim (Slot);
