@@ -18,6 +18,9 @@ procedure Tests is
       accept Start (Id : Spots.Slot_Id) do
          Slot := Id;
       end Start;
+      if Slot not in Spots.Slot_Id then
+         raise Program_Error;
+      end if;
       B.Claim (Slot);
       accept Done;
    end Grabber;
